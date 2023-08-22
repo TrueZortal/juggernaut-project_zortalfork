@@ -1,3 +1,14 @@
+PATH
+  remote: JuggernautGem
+  specs:
+    juggernaut (0.0.1)
+      faraday
+      google-apis-calendar_v3 (~> 0.1)
+      google-apis-sheets_v4 (~> 0.1)
+      googleauth
+      rspec
+      standard
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -100,6 +111,7 @@ DEPENDENCIES
   google-apis-calendar_v3 (~> 0.1)
   google-apis-sheets_v4 (~> 0.1)
   googleauth
+  juggernaut!
   rspec
   standard
 

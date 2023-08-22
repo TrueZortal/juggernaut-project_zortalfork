@@ -1,6 +1,8 @@
 
 # frozen_string_literal: true
 
+require_relative '../lib/google/sheets'
+
 if ARGV.empty?
   puts "Please provide sheet credentials names to run the script for a list of partners"
   puts "eg. ruby scripts/bulk_add_next_month_and_copy_last.rb test test2"
