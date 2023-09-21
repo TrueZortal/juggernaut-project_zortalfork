@@ -1,6 +1,9 @@
-require 'juggernaut'
+# require_relative '../lib/google/calendar'
 
-p Juggernaut.methods
-p Juggernaut.included_modules
-p Juggernaut.instance_methods
-p Juggernaut.public_instance_methods
+require 'juggernaut'
+# @service = Google::Apis::CalendarV3::CalendarService.new
+# p @service
+
+calendar_object = Juggernaut::GoogleCalendar::Calendar.new(calendar_name: 'test')
+fetched = calendar_object.fetch_events(Date.today)
+p fetched

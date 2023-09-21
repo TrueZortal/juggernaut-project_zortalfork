@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Juggernaut
-  module Google
+  module GoogleCalendar
     require_relative 'auth_wrapper'
     require 'google/apis/calendar_v3'
     require 'googleauth'
