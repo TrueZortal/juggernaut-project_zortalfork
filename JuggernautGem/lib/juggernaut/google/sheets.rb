@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 module Juggernaut
   module Google
-    require_relative 'auth_wrapper'
-    require 'google/apis/sheets_v4'
-    require 'googleauth'
-    require 'googleauth/stores/file_token_store'
-    require 'fileutils'
-    require 'json'
+    # require_relative 'auth_wrapper'
+    # require 'google/apis/sheets_v4'
+    # require 'googleauth'
+    # require 'googleauth/stores/file_token_store'
+    # require 'fileutils'
+    # require 'json'
 
     class Sheets
       def initialize(
@@ -14,6 +14,24 @@ module Juggernaut
         token_file: 'lib/google/sheets/token.secret.yaml',
         file_id:
       )
+
+      required_gems = [
+        'google-apis-calendar_v3',
+        'google-apis-sheets_v4',
+        'googleauth',
+        'googleauth/stores/file_token_store',
+        'date',
+        'fileutils',
+        'json'
+      ]
+
+        loaded_gems = required_gems.select do |gem_name|
+          $LOADED_FEATURES.any? { |feature| feature.include?(gem_name) }
+        end
+
+        puts 'Loaded gems in the Juggernaut::Google::Sheets context:'
+        puts loaded_gems
+
         @config = get_json_from_file(config_file)
         @spreadsheet_id = assign_spreadsheet_id(file_id)
 

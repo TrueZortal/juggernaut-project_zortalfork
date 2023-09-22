@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 module Juggernaut
-  module GoogleCalendar
-    require_relative 'auth_wrapper'
-    require 'google/apis/calendar_v3'
-    require 'googleauth'
-    require 'googleauth/stores/file_token_store'
-    require 'date'
-    require 'fileutils'
+  module Google
+    # require_relative 'auth_wrapper'
+    require 'google-apis-calendar_v3'
+    # require 'googleauth'
+    # require 'googleauth/stores/file_token_store'
+    # require 'date'
+    # require 'fileutils'
     require 'json'
 
     class Calendar
@@ -19,9 +19,30 @@ module Juggernaut
         token_file: 'lib/google/calendar/token.secret.yaml',
         calendar_name: 'primary'
       )
-        @config = get_json_from_file(config_file)
-        @name = calendar_name
-        @calendar_id = get_calendar_id_for(calendar_name)
+
+      required_gems = [
+        'google-apis-calendar_v3',
+        'google-apis-sheets_v4',
+        'googleauth',
+        'googleauth/stores/file_token_store',
+        'date',
+        'fileutils',
+        'json'
+      ]
+
+      loaded_gems = required_gems.select do |gem_name|
+        $LOADED_FEATURES.any? { |feature| feature.include?(gem_name) }
+      end
+
+      puts 'Loaded gemsin the Juggernaut::Google::Calendar:'
+      puts loaded_gems
+      puts $LOADED_FEATURES
+
+      @config = get_json_from_file(config_file)
+      @name = calendar_name
+      @calendar_id = get_calendar_id_for(calendar_name)
+
+
 
         @service = Google::Apis::CalendarV3::CalendarService.new
         @service.client_options.application_name = application_name

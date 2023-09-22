@@ -2,10 +2,13 @@ PATH
   remote: JuggernautGem
   specs:
     juggernaut (0.0.1)
+      date
       faraday
-      google-apis-calendar_v3 (~> 0.1)
-      google-apis-sheets_v4 (~> 0.1)
+      fileutils
+      google-apis-calendar_v3
+      google-apis-sheets_v4
       googleauth
+      json
 
 GEM
   remote: https://rubygems.org/
@@ -14,12 +17,14 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     base64 (0.1.1)
+    date (3.3.3)
     declarative (0.0.20)
     diff-lcs (1.5.0)
     faraday (2.7.10)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
+    fileutils (1.7.1)
     google-apis-calendar_v3 (0.33.0)
       google-apis-core (>= 0.11.0, < 2.a)
     google-apis-core (0.11.1)

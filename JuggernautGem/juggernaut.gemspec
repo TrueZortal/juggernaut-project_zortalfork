@@ -14,8 +14,11 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'faraday'
   spec.add_dependency 'googleauth'
-  spec.add_dependency 'google-apis-calendar_v3', '~> 0.1'
-  spec.add_dependency 'google-apis-sheets_v4', '~> 0.1'
+  spec.add_dependency 'google-apis-calendar_v3'
+  spec.add_dependency 'google-apis-sheets_v4'
+  spec.add_dependency 'json'
+  spec.add_dependency 'fileutils'
+  spec.add_dependency 'date'
 
   # spec.add_dependency 'rspec'
   # spec.add_dependency 'standard'
